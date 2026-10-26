@@ -53,6 +53,41 @@ def test_matches_builtin_sorted():
     assert data == sorted(data, reverse=True)
 
 
+def test_two_elements():
+    """The smallest non-trivial list must be ordered correctly."""
+    data = [1, 2]
+    decending_order_insert_sort(data)
+    assert data == [2, 1]
+
+
+def test_floats():
+    """Decimal (float) values must sort like integers."""
+    data = [0.5, 3.2, -1.7, 2.0]
+    decending_order_insert_sort(data)
+    assert data == [3.2, 2.0, 0.5, -1.7]
+
+
+def test_all_identical():
+    """A list where every value is the same must stay unchanged."""
+    data = [7, 7, 7, 7]
+    decending_order_insert_sort(data)
+    assert data == [7, 7, 7, 7]
+
+
+def test_mixed_zeros():
+    """Zeros must land between the positive and negative values."""
+    data = [0, -2, 3, 0, -1]
+    decending_order_insert_sort(data)
+    assert data == [3, 0, 0, -1, -2]
+
+
+def test_longer_list():
+    """A longer list (15 elements) must agree with sorted(reverse=True)."""
+    data = [23, 7, 19, 2, 11, 34, 5, 8, 29, 14, 1, 17, 3, 26, 12]
+    decending_order_insert_sort(data)
+    assert data == sorted(data, reverse=True)
+
+
 def main():
     tests = [
         test_already_decreasing,
@@ -61,6 +96,11 @@ def main():
         test_negative_numbers,
         test_single_element_and_empty,
         test_matches_builtin_sorted,
+        test_two_elements,
+        test_floats,
+        test_all_identical,
+        test_mixed_zeros,
+        test_longer_list,
     ]
 
     failed = 0

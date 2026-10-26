@@ -1,6 +1,8 @@
 """
 MSCS 532 - Assignment 1
 Assignment: Insertion Sort (monotonically decreasing order)
+By: Alfredo Rosado
+Date: 10-25-26
 
 Reference: Based on Chapter 2 of Cormen, Leiserson, Rivest & Stein,
 "Introduction to Algorithms" (4th ed., 2022).
