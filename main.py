@@ -8,13 +8,20 @@ Reference: Based on Chapter 2 of Cormen, Leiserson, Rivest & Stein,
 
 def decending_order_insert_sort(arr):
     """
-    Function: Takes an array sorts the array
-    using insert sort in decending order
+    Function: Takes an array and sorts the array
+    using insertion sort in decreasing order
     Parameter: arr
     Return: arr
     """
-
-    #Place Holder for algo
+    for j in range(1, len(arr)):
+        key = arr[j]
+        i = j - 1
+        # Shift elements that are smaller than the key one slot right
+        while i >= 0 and arr[i] < key:
+            arr[i + 1] = arr[i]
+            i -= 1
+        # Place the key in its correct position
+        arr[i + 1] = key
     return arr
 
 
